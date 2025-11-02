@@ -1,16 +1,6 @@
-# Firebase
-.firebase/
-firebase-debug.log
-firebase-debug.*.log
-
-# Node
 node_modules/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
+.firebase/
+*.log
 .DS_Store
-Thumbs.db
+.env
 
