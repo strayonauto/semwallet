@@ -258,15 +258,11 @@
     </div>
 
     <script>
-        // This will be updated with the actual download link
-        const downloadUrl = 'GITHUB_RELEASE_URL_PLACEHOLDER';
+        // Direct download link from GitHub Releases
+        const downloadUrl = 'https://github.com/strayonauto/semwallet/releases/download/v1.0.0/Semwallet.apk';
         
         function handleDownload() {
-            if (downloadUrl !== 'GITHUB_RELEASE_URL_PLACEHOLDER') {
-                window.location.href = downloadUrl;
-            } else {
-                alert('Download link will be available soon!');
-            }
+            window.location.href = downloadUrl;
         }
 
         document.getElementById('downloadBtn').addEventListener('click', handleDownload);
