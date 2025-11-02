@@ -1,7 +1,16 @@
-node_modules/
+# Firebase
 .firebase/
-.firebaserc
 firebase-debug.log
+firebase-debug.*.log
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
-*.log
+Thumbs.db
 

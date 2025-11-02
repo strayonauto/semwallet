@@ -1,126 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEM Wallet — Download Center</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SEM Wallet - Download Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df293",
+                        "primary-dark": "#0ac977",
+                        "secondary": "#4f46e5",
+                        "purple": "#7c3aed",
+                        "background": "#ffffff",
+                        "surface": "#f8fffe",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fffe 0%, #e0fef5 50%, #f0f9ff 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0df293 0%, #0ac977 50%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #0df293, #4f46e5, #7c3aed);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(13, 242, 147, 0.05) 0%, rgba(79, 70, 229, 0.05) 100%);
+            border: 1px solid rgba(13, 242, 147, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(13, 242, 147, 0.15);
+            border-color: rgba(13, 242, 147, 0.4);
+        }
+        
+        .download-button {
+            background: linear-gradient(135deg, #0df293 0%, #0ac977 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(13, 242, 147, 0.3);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(13, 242, 147, 0.4);
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 20% 30%, rgba(13, 242, 147, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 60%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 20px rgba(13, 242, 147, 0.3));
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
+<body class="font-display">
+    <div class="relative min-h-screen">
         <!-- Header -->
-        <header class="header">
-            <div class="logo-container">
-                <div class="logo-circle">
-                    <div class="logo-s">S</div>
+        <header class="border-b border-gray-200 bg-white/80 backdrop-blur-lg sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between py-4">
+                    <div class="flex items-center gap-3">
+                        <!-- SEM Logo SVG -->
+                        <div class="w-10 h-10 logo-glow">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#0df293;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#4f46e5;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="url(#logoGradient)"/>
+                            </svg>
+                        </div>
+                        <h1 class="text-2xl font-bold text-gray-900">SEM <span class="gradient-text">Wallet</span></h1>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a href="#features" class="text-gray-600 hover:text-primary transition-colors">Features</a>
+                        <a href="#download" class="text-gray-600 hover:text-primary transition-colors">Download</a>
+                    </nav>
                 </div>
-                <h1 class="brand-name">SEM WALLET</h1>
             </div>
         </header>
 
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h2 class="main-title">SEM Wallet — Download Center</h2>
-                <p class="tagline">Empower Your Finances. <span class="highlight">Seamlessly.</span></p>
-                <p class="description">Securely manage your digital currency with ease and confidence.</p>
-
-                <!-- Feature Cards -->
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>User Security & Decentralized Identity</h3>
-                        <p>10 secret recovery words + 6-digit passcode — double-layer security for true ownership</p>
+        <section class="hero-gradient py-16 sm:py-24 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <!-- Large Logo Icon -->
+                    <div class="w-32 h-32 mx-auto mb-8 logo-glow">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0df293;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#4f46e5;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="url(#heroLogoGradient)"/>
+                        </svg>
                     </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">⚙️</div>
-                        <h3>Next-Gen Web3 Ready</h3>
-                        <p>Multi-feature wallet bridging users, finance, and future Web3 ecosystems</p>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
+                        Empower Your Finances. <span class="gradient-text">Seamlessly.</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                        A secure, decentralized wallet designed for the next-gen Web3 user. Experience African-origin innovation with a modern, simplified UI built for everyone.
+                    </p>
+                    
+                    <!-- Download Button -->
+                    <div id="download" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="GITHUB_DOWNLOAD_LINK_PLACEHOLDER" 
+                           class="download-button flex items-center gap-3 px-8 py-4 rounded-xl text-white font-bold text-lg hover:opacity-90">
+                            <span class="material-symbols-outlined" style="font-size: 28px;">android</span>
+                            <span>Download for Android (.apk)</span>
+                        </a>
                     </div>
+                    
+                    <p class="text-sm text-gray-500 mt-4">
+                        Securely manage your digital currency with ease and confidence.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">🌍</div>
-                        <h3>African-Origin Innovation</h3>
-                        <p>Built for African markets with Telebirr integration and local currency support</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">🪙</div>
-                        <h3>SEM Coin Ecosystem</h3>
-                        <p>Native platform for Volcoin/SEM digital currency — hold, send, stake, and earn</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">🔐</div>
-                        <h3>Anti-Manipulation & Privacy</h3>
-                        <p>True P2P with end-to-end encryption — no government tracking or bank interference</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">🎨</div>
-                        <h3>Modern Simplified UI</h3>
-                        <p>Minimal, futuristic interface optimized for new crypto users</p>
-                    </div>
+        <!-- Features Section -->
+        <section id="features" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                        Why Choose <span class="gradient-text">SEM Wallet?</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Discover the powerful features that make SEM Wallet the right choice for managing your digital assets.
+                    </p>
                 </div>
 
-                <!-- Virtual Card Display -->
-                <div class="card-display">
-                    <div class="virtual-card">
-                        <div class="card-header">
-                            <span class="card-title">SEM Sovereign</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">security</span>
                         </div>
-                        <div class="card-number">**** **** **** 5678</div>
-                        <div class="card-holder">SOFIA B.</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">User Security & Decentralized Identity</h3>
+                        <p class="text-gray-600">
+                            Email + Password login with 10 secret recovery words and 6-digit passcode. True ownership without centralized custody.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Download Button -->
-                <div class="download-section">
-                    <button class="download-btn" onclick="downloadAPK()">
-                        <span class="btn-icon">📱</span>
-                        <span class="btn-text">Download for Android (.apk)</span>
-                    </button>
-                    <p class="download-info">Latest Version • Compatible with Android 7.0+</p>
-                </div>
+                    <!-- Feature 2 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary to-purple flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">hub</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Designed for Next-Gen Web3</h3>
+                        <p class="text-gray-600">
+                            Not just crypto transfer—a bridge for P2P trading, token staking, and digital identity in the Web3 ecosystem.
+                        </p>
+                    </div>
 
-                <!-- Why SEM Wallet -->
-                <div class="why-section">
-                    <h3 class="section-title">Why Choose SEM Wallet?</h3>
-                    <div class="benefits-list">
-                        <div class="benefit-item">
-                            <span class="check-icon">✓</span>
-                            <span>Community-owned vision with user governance</span>
+                    <!-- Feature 3 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple to-primary flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">public</span>
                         </div>
-                        <div class="benefit-item">
-                            <span class="check-icon">✓</span>
-                            <span>Multi-platform expansion across Web3 ecosystem</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">African-Origin Innovation</h3>
+                        <p class="text-gray-600">
+                            Built for the African market with Telebirr integration, offline-friendly options, and local currency support.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">currency_bitcoin</span>
                         </div>
-                        <div class="benefit-item">
-                            <span class="check-icon">✓</span>
-                            <span>Future P2P trading, token staking, and digital identity</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">SEM Coin Ecosystem Integration</h3>
+                        <p class="text-gray-600">
+                            Native platform for Volcoin/SEM digital currency. Hold, send, stake, and earn within the SEM ecosystem.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary to-purple flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">privacy_tip</span>
                         </div>
-                        <div class="benefit-item">
-                            <span class="check-icon">✓</span>
-                            <span>Offline-friendly and low-data optimization</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Anti-Manipulation & Privacy</h3>
+                        <p class="text-gray-600">
+                            True P2P without centralized tracking. End-to-end encryption for all wallet and message transactions.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple to-primary flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">phone_iphone</span>
                         </div>
-                        <div class="benefit-item">
-                            <span class="check-icon">✓</span>
-                            <span>Fiat-to-crypto bridge without government manipulation</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Modern, Simplified UI</h3>
+                        <p class="text-gray-600">
+                            Minimal, futuristic, and user-first interface. Optimized for new crypto users who've never used a wallet before.
+                        </p>
+                    </div>
+
+                    <!-- Feature 7 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">groups</span>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Community-Owned Vision</h3>
+                        <p class="text-gray-600">
+                            A wallet owned and governed by its community. Vote, earn, and contribute to true decentralization.
+                        </p>
+                    </div>
+
+                    <!-- Feature 8 -->
+                    <div class="feature-card rounded-2xl p-6">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary to-purple flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-white" style="font-size: 32px;">devices</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Multi-Platform Expansion</h3>
+                        <p class="text-gray-600">
+                            Fast, responsive, and integrated with real-time data across all your devices.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 SEM Wallet. All rights reserved.</p>
-            <p class="footer-note">Your gateway to sovereign financial freedom</p>
+        <footer class="bg-gray-50 border-t border-gray-200 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col items-center gap-8">
+                    <!-- Footer Links -->
+                    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+                        <a class="text-gray-600 hover:text-primary transition-colors font-medium" href="#">Support</a>
+                        <a class="text-gray-600 hover:text-primary transition-colors font-medium" href="#">Privacy Policy</a>
+                        <a class="text-gray-600 hover:text-primary transition-colors font-medium" href="#">Terms of Service</a>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="flex gap-6">
+                        <a class="text-gray-600 hover:text-primary transition-colors" href="#" aria-label="Twitter">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-600 hover:text-primary transition-colors" href="#" aria-label="Discord">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.073 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1 .015.019.051.051 0 0 1-.02.066 8.875 8.875 0 0 1-1.248.595.05.05 0 0 0-.01.059c.236.466.51.899.818 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.125a.043.043 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-600 hover:text-primary transition-colors" href="#" aria-label="Telegram">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09Z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <p class="text-gray-500 text-sm">© 2024 SEM Wallet. All rights reserved.</p>
+                </div>
+            </div>
         </footer>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
 
