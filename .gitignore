@@ -1,6 +1,15 @@
-node_modules/
+# Firebase
 .firebase/
-*.log
+firebase-debug.log
+
+# Node modules
+node_modules/
+
+# OS files
 .DS_Store
-.env
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
 
