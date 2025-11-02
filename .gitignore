@@ -1,15 +1,7 @@
-# Firebase
-.firebase/
-firebase-debug.log
-
-# Node modules
 node_modules/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs
+.firebase/
+.firebaserc
+firebase-debug.log
 *.log
-npm-debug.log*
+.DS_Store
 

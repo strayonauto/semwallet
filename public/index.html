@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <script id="tailwind-config">
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
@@ -33,146 +34,142 @@
                         radial-gradient(circle at 50% 50%, #7c3aed 0%, transparent 25%);
             background-color: #10221b;
         }
+        
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 242, 147, 0.3);
+        }
     </style>
 </head>
 <body class="font-display">
-    <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light gradient-bg">
-        <div class="layout-container flex h-full grow flex-col">
-            <div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <!-- TopNavBar -->
-                    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#224939]/50 px-4 md:px-10 py-3">
-                        <div class="flex items-center gap-4 text-white">
-                            <div class="size-6 text-primary">
-                                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
-                                </svg>
-                            </div>
-                            <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">SEM</h2>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden gradient-bg">
+    <div class="layout-container flex h-full grow flex-col">
+        <div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+                <!-- TopNavBar -->
+                <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#224939]/50 px-4 md:px-10 py-3">
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="size-6 text-primary">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+                            </svg>
                         </div>
-                    </header>
-                    
-                    <!-- HeroSection -->
-                    <div class="@container">
-                        <div class="flex flex-col gap-8 px-4 py-20 text-center items-center">
-                            <div class="flex flex-col gap-4">
-                                <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-6xl">
-                                    The Future of Your Digital Assets.
-                                </h1>
-                                <h2 class="text-white/80 text-base font-normal leading-normal max-w-2xl mx-auto md:text-lg">
-                                    A secure, decentralized wallet designed for the next-gen Web3 user. Experience African-origin innovation with a modern, simplified UI for everyone.
-                                </h2>
-                            </div>
-                            <a id="download-btn" href="#" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-background-dark text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
-                                <span class="truncate">📱 Download for Android (.apk)</span>
-                            </a>
-                        </div>
+                        <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">SEM</h2>
                     </div>
-                    
-                    <!-- FeatureSection -->
-                    <div class="flex flex-col gap-10 px-4 py-10 @container">
-                        <div class="flex flex-col gap-4 text-center">
-                            <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Why Choose SEM Wallet?</h2>
-                            <p class="text-white/80 text-base font-normal leading-normal max-w-[720px] mx-auto">
-                                Discover the powerful features that make SEM Wallet the right choice for managing your digital assets.
-                            </p>
+                </header>
+                
+                <!-- HeroSection -->
+                <div class="@container">
+                    <div class="flex flex-col gap-8 px-4 py-20 text-center items-center">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em] md:text-6xl">
+                                The Future of Your Digital Assets.
+                            </h1>
+                            <h2 class="text-white/80 text-base font-normal leading-normal max-w-2xl mx-auto md:text-lg">
+                                A secure, decentralized wallet designed for the next-gen Web3 user. Experience African-origin innovation with a modern, simplified UI for everyone.
+                            </h2>
                         </div>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-0">
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">security</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">User Security & Decentralized Identity</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">Your assets are protected with top-tier security and self-sovereign identity.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">hub</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">Designed for the Next-Gen Web3 User</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">Built from the ground up for a seamless Web3 experience.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">lightbulb</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">African-Origin Innovation</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">Proudly developed in Africa, for the global digital economy.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">currency_bitcoin</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">SEM Coin Ecosystem Integration</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">Fully integrated with the SEM Coin ecosystem for smooth transactions.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">privacy_tip</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">Anti-Manipulation & Privacy Protection</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">We prioritize your privacy with advanced anti-manipulation features.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">phone_iphone</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">Modern, Simplified UI for Everyone</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">An intuitive and clean interface that's easy for anyone to use.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col sm:col-start-1 sm:col-end-3 lg:col-start-auto lg:col-end-auto lg:col-span-1">
-                                <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">groups</span></div>
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="text-white text-lg font-bold leading-tight">Community-Owned Vision</h3>
-                                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">A wallet that is owned and governed by its community of users.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="https://github.com/semwallet/semwallet/releases/download/v1.0.0/Semwallet.apk" class="download-btn flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-background-dark text-base font-bold leading-normal tracking-[0.015em]">
+                            <span class="truncate">📱 Download for Android (.apk)</span>
+                        </a>
                     </div>
-                    
-                    <!-- Footer -->
-                    <footer class="flex flex-col gap-6 px-5 py-10 text-center @container border-t border-solid border-t-[#224939]/50 mt-10">
-                        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                            <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Support</a>
-                            <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Privacy Policy</a>
-                            <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Terms of Service</a>
-                        </div>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
-                                <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"></path>
-                                </svg>
-                            </a>
-                            <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
-                                <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.073 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1 .015.019.051.051 0 0 1-.02.066 8.875 8.875 0 0 1-1.248.595.05.05 0 0 0-.01.059.051.051 0 0 0-.018.011c.236.466.51.899.818 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.125a.043.043 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
-                                </svg>
-                            </a>
-                            <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
-                                <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09Z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                        <p class="text-[#90cbb2] text-sm font-normal leading-normal">© 2024 SEM Wallet. All rights reserved.</p>
-                    </footer>
                 </div>
+                
+                <!-- FeatureSection -->
+                <div class="flex flex-col gap-10 px-4 py-10 @container">
+                    <div class="flex flex-col gap-4 text-center">
+                        <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Why Choose SEM Wallet?</h2>
+                        <p class="text-white/80 text-base font-normal leading-normal max-w-[720px] mx-auto">
+                            Discover the powerful features that make SEM Wallet the right choice for managing your digital assets.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-0">
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">security</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">User Security & Decentralized Identity</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">Your assets are protected with top-tier security and self-sovereign identity.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">hub</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">Designed for the Next-Gen Web3 User</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">Built from the ground up for a seamless Web3 experience.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">lightbulb</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">African-Origin Innovation</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">Proudly developed in Africa, for the global digital economy.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">currency_bitcoin</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">SEM Coin Ecosystem Integration</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">Fully integrated with the SEM Coin ecosystem for smooth transactions.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">privacy_tip</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">Anti-Manipulation & Privacy Protection</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">We prioritize your privacy with advanced anti-manipulation features.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">phone_iphone</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">Modern, Simplified UI for Everyone</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">An intuitive and clean interface that's easy for anyone to use.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 gap-3 rounded-lg border border-[#316851]/50 bg-[#183429]/50 p-4 flex-col sm:col-start-1 sm:col-end-3 lg:col-start-auto lg:col-end-auto lg:col-span-1">
+                            <div class="text-primary"><span class="material-symbols-outlined" style="font-size: 28px;">groups</span></div>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-white text-lg font-bold leading-tight">Community-Owned Vision</h3>
+                                <p class="text-[#90cbb2] text-sm font-normal leading-normal">A wallet that is owned and governed by its community of users.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <footer class="flex flex-col gap-6 px-5 py-10 text-center @container border-t border-solid border-t-[#224939]/50 mt-10">
+                    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                        <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Support</a>
+                        <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Privacy Policy</a>
+                        <a class="text-[#90cbb2] hover:text-primary text-base font-normal leading-normal min-w-40 transition-colors" href="#">Terms of Service</a>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.073 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1 .015.019.051.051 0 0 1-.02.066 8.875 8.875 0 0 1-1.248.595.05.05 0 0 0-.01.059.051.051 0 0 0-.018.011c.236.466.51.899.818 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.125a.043.043 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-[#90cbb2] hover:text-primary transition-colors" href="#">
+                            <svg fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09Z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-[#90cbb2] text-sm font-normal leading-normal">© 2024 SEM Wallet. All rights reserved.</p>
+                </footer>
             </div>
         </div>
     </div>
-    
-    <script>
-        // This will be updated with the GitHub direct download link
-        const DOWNLOAD_URL = 'GITHUB_RELEASE_LINK_PLACEHOLDER';
-        document.getElementById('download-btn').href = DOWNLOAD_URL;
-    </script>
+</div>
 </body>
 </html>
 
